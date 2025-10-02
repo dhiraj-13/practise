@@ -15,7 +15,8 @@ import { TaskComponent } from './tasks/tasks';
 })
 export class App {
   users = DUMMY_USERS;
-  selecteduserID = 'u1';
+  // selecteduserID = 'u1';
+  selecteduserID!: string;
   protected readonly title = signal('angular-practise-app');
   // userObject: { id: string; name: string; avatar: string } | undefined;
   // newID!: string;
@@ -29,7 +30,7 @@ export class App {
     this.selecteduserID = id;
   }
 
-  get selectedUser(){
+  get selectedUser() {
     return this.users.find((user) => user.id === this.selecteduserID);
   }
 }
