@@ -1,18 +1,28 @@
 <section id="tasks">
-<header>
-  <h2>
-    {{ name }}'s Tasks  </h2>
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
     <menu>
-      <button>
-        Add Task
-      </button>
+      <button (click)="addTask(userID)">Add Task</button>
     </menu>
-</header>
+  </header>
 
-<ul>
-  <li>
+  <ul>
+    @for(t of selectedUsertask; track t.id){
+    <li>
+      <app-task [task]="t" (taskcompleted)="taskidCompletion($event)" />
+    </li>
+    }
+  </ul>
 
-    
-  </li>
-</ul>
+  <!-- add task start-->
+
+  <ul>
+    @if(isAddingtask){
+    <li>
+      <app-add-task (dialogClosed)="closeDialog()" />
+    </li>
+    }
+  </ul>
+
+  <!-- add task end-->
 </section>
