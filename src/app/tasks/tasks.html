@@ -9,7 +9,7 @@
   <ul>
     @for(t of selectedUsertask; track t.id){
     <li>
-      <app-task [task]="t" (taskcompleted)="taskidCompletion($event)" />
+      <app-task [task]="t" />
     </li>
     }
   </ul>
@@ -18,9 +18,7 @@
 
   <ul>
     @if(isAddingtask){
-    <li>
-      <app-add-task (dialogClosed)="closeDialog()" />
-    </li>
+    <li><app-add-task (dialogClosed)="closeDialog()" [userID]="userID" /></li>
     }
   </ul>
 
